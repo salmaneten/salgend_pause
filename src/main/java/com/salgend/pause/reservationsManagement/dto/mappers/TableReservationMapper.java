@@ -3,7 +3,6 @@ package com.salgend.pause.reservationsManagement.dto.mappers;
 import com.salgend.pause.reservationsManagement.dto.TableReservationDTO;
 import com.salgend.pause.reservationsManagement.entities.TableReservation;
 import jakarta.validation.Valid;
-
 import java.util.Objects;
 
 public class TableReservationMapper {
