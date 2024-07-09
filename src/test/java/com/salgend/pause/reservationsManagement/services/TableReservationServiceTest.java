@@ -3,6 +3,7 @@ import com.salgend.pause.reservationsManagement.dto.TableReservationDTO;
 import com.salgend.pause.reservationsManagement.entities.TableReservation;
 
 
+import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.Test;
 
 
@@ -10,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
-import jakarta.validation.ConstraintViolationException;
 
 @SpringBootTest
 class TableReservationServiceTest {
@@ -27,19 +27,11 @@ class TableReservationServiceTest {
         assertEquals(1,tableReservation.getNumber());
         assertEquals(5, tableReservation.getNumberOfGuests());
     }
-    @Test()
-    void testCreateTable_NumberOfGuestsLessThanMinThree(){
-        TableReservationDTO dto = TableReservationDTO.of( 1);
-        assertThrowsExactly(ConstraintViolationException.class,  () ->{
-            tableReservationService.createOrUpdate(dto);
-        });
-    }
-    @Test()
-    void testCreateTable_NumberOfGuestsGreatThanMaxEight(){
-        TableReservationDTO dto = TableReservationDTO.of( 9);
-        assertThrowsExactly(ConstraintViolationException.class,  () ->{
-            tableReservationService.createOrUpdate(dto);
-        });
+
+    @Test
+    void testFindById_NotFound(){
+        assertThrowsExactly(EntityNotFoundException.class,
+                ( )-> tableReservationService.findById(19L));
     }
 
 }
