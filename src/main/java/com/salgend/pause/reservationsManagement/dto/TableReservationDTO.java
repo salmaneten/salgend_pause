@@ -1,6 +1,6 @@
 package com.salgend.pause.reservationsManagement.dto;
 
-import jakarta.validation.Valid;
+
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 
