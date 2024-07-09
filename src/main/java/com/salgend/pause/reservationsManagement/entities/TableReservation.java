@@ -1,9 +1,6 @@
 package com.salgend.pause.reservationsManagement.entities;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
@@ -18,7 +15,6 @@ public class TableReservation {
     private Integer number;
 
     @NotNull
-    @Min(3) @Max(8)
     private Integer numberOfGuests;
 
     public TableReservation(Integer numberOfGuests){
