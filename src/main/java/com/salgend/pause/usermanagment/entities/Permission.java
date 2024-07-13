@@ -19,5 +19,9 @@ public class Permission {
 
     @ManyToMany(mappedBy = "permissions", fetch = FetchType.LAZY)
     private Set<Role> roles = new HashSet<>();
+
+    public Permission(String name) {
+        this.name = name;
+    }
 }
 
