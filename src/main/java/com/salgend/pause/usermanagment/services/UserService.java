@@ -5,10 +5,10 @@ import com.salgend.pause.usermanagment.entities.User;
 import com.salgend.pause.usermanagment.mappers.UserMapper;
 import com.salgend.pause.usermanagment.repositories.RoleRepository;
 import com.salgend.pause.usermanagment.repositories.UserRepository;
-import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-@Data
+@RequiredArgsConstructor
 @Service
 public class UserService {
     private final UserRepository userRepository;
