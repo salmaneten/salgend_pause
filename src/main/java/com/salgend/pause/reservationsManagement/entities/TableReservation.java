@@ -3,9 +3,11 @@ package com.salgend.pause.reservationsManagement.entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@NoArgsConstructor
 public class TableReservation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
