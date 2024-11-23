@@ -11,14 +11,15 @@ import java.util.Objects;
 public class TableReservationMapper {
     public static TableReservation toEntity( TableReservationDTO dto){
        TableReservation entity =  new TableReservation(dto.numberOfGuests());
-       if(Objects.nonNull(dto.number())){
+       if(Objects.nonNull(dto.id())){
+           entity.setId(dto.id());
+       }if(Objects.nonNull(dto.number())){
            entity.setNumber(dto.number());
        }
-
        return entity;
     }
     public static TableReservationDTO toDTO( TableReservation entity){
-        return new TableReservationDTO(entity.getNumber(), entity.getNumberOfGuests());
+        return new TableReservationDTO(entity.getId(),entity.getNumber(), entity.getNumberOfGuests());
     }
     public static List<TableReservationDTO> toDTOs(List<TableReservation> entities){
       return entities.stream().map(TableReservationMapper::toDTO).toList();
