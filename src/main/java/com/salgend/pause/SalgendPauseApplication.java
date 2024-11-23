@@ -9,5 +9,4 @@ public class SalgendPauseApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SalgendPauseApplication.class, args);
 	}
-
 }
