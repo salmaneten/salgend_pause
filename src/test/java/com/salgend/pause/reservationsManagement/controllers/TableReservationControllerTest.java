@@ -26,7 +26,6 @@ import java.util.Collections;
 
 
 @WebMvcTest(TableReservationController.class)
-//@ExtendWith(MockitoExtension.class)
 @AutoConfigureMockMvc
 class TableReservationControllerTest {
     @Autowired
@@ -60,7 +59,7 @@ class TableReservationControllerTest {
 
     @Test
     void showTable() throws Exception {
-        TableReservationDTO dto = new TableReservationDTO(1, 4);
+        TableReservationDTO dto = TableReservationDTO.of(1L, null, 4);
         when(tableReservationService.findById(1L)).thenReturn(dto);
 
         mockMvc.perform(get("/tables/1")
@@ -71,7 +70,7 @@ class TableReservationControllerTest {
     }
 
     @Test
-    public void showTables() throws Exception {
+     void showTables() throws Exception {
         int page = 0;
         int size = 10;
         Pageable pageable = PageRequest.of(page, size);
